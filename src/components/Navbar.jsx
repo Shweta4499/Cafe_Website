@@ -5,10 +5,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#3c2f2f] text-white shadow-md z-50">
+    <nav className="fixed top-0 left-0 w-full bg-[#c5b7b7] text-[#432121] shadow-md z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-bold">☕ Brew & Bliss</h1>
+        <h1 className="text-2xl font-['Playfair_Display'] font-bold leading-tight">☕ Brew & Bliss</h1>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6">
@@ -28,7 +28,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#3c2f2f] border-t border-[#d4a373]">
+        <div className="md:hidden bg-[#c4c1c1] border-t border-[#d4a373]">
           <ul className="flex flex-col items-center py-4 space-y-4">
             <li><a href="#about" className="hover:text-[#d4a373]" onClick={() => setIsOpen(false)}>About</a></li>
             <li><a href="#menu" className="hover:text-[#d4a373]" onClick={() => setIsOpen(false)}>Menu</a></li>

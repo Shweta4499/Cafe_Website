@@ -2,27 +2,27 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function NextAbout() {
-  const [leftX, setLeftX] = useState(-110);
-  const [rightX, setRightX] = useState(130);
+  const [leftPos, setLeftPos] = useState({ x: -130, y: -90 });
+  const [rightPos, setRightPos] = useState({ x: 130, y: -90 });
 
   useEffect(() => {
     const updatePositions = () => {
       if (window.innerWidth < 640) {
         // small screens
-        setLeftX(-120);
-        setRightX(120);
+        setLeftPos({ x: -130, y: -15 });
+        setRightPos({ x: 130, y: -60 });
       } else if (window.innerWidth >= 1024) {
-        // large screens
-        setLeftX(-170);
-        setRightX(190);
+        // large screens - lower cups
+        setLeftPos({ x: -170, y: -50 });
+        setRightPos({ x: 190, y: -50 });
       } else {
-        // medium screens
-        setLeftX(-110);
-        setRightX(130);
+        // medium screens - slightly lower
+        setLeftPos({ x: -130, y: -70 });
+        setRightPos({ x: 130, y: -70 });
       }
     };
 
-    updatePositions(); // set initial values
+    updatePositions();
     window.addEventListener("resize", updatePositions);
     return () => window.removeEventListener("resize", updatePositions);
   }, []);
@@ -35,7 +35,7 @@ export default function NextAbout() {
       {/* Left Side - Text */}
       <div className="flex-1 text-center md:text-left max-w-xl">
         <h2 className="text-2xl md:text-3xl font-bold text-[#eeeeee] font-['Playfair_Display']">
-          About 
+          About
         </h2>
         <h2 className="text-6xl md:text-5xl font-bold text-[#eeeeee] font-['Playfair_Display']">
           OUR CAFE
@@ -49,7 +49,7 @@ export default function NextAbout() {
       </div>
 
       {/* Right Side - Coffee Animation */}
-      <div className="flex-1 relative flex justify-center items-center mt-12 md:mt-0 min-h-[500px]">
+      <div className="flex-1 relative flex justify-center items-start md:mt-0 min-h-[500px]">
         {/* Middle Cup */}
         <motion.img
           src="/1.png"
@@ -64,20 +64,20 @@ export default function NextAbout() {
         <motion.img
           src="/2.png"
           alt="Left Coffee"
-          initial={{ opacity: 0, scale: 0.3, y: 60 }}
-          animate={{ opacity: 1, scale: 0.8, rotate: -12, x: leftX, y: 40 }}
+          initial={{ opacity: 0, scale: 0.3, y: -10 }}
+          animate={{ opacity: 1, scale: 0.8, rotate: -12, x: leftPos.x, y: leftPos.y }}
           transition={{ delay: 0.6, duration: 0.9, ease: "easeOut" }}
-          className="w-56 md:w-80 absolute top-1/2 -translate-y-1/2 z-20"
+          className="w-56 md:w-80 absolute top-0 z-20"
         />
 
         {/* Right Cup */}
         <motion.img
           src="/3.png"
           alt="Right Coffee"
-          initial={{ opacity: 0, scale: 0.3, y: 60 }}
-          animate={{ opacity: 1, scale: 0.8, rotate: 12, x: rightX, y: 20 }}
+          initial={{ opacity: 0, scale: 0.3, y: -60 }}
+          animate={{ opacity: 1, scale: 0.75, rotate: 12, x: rightPos.x, y: rightPos.y }}
           transition={{ delay: 0.6, duration: 0.9, ease: "easeOut" }}
-          className="w-56 md:w-80 absolute top-1/2 -translate-y-1/2 z-10"
+          className="w-56 md:w-80 absolute top-0 z-20"
         />
       </div>
     </section>
