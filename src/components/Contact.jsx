@@ -21,12 +21,12 @@ export default function Contact() {
   };
 
   return (
-    <section className="min-h-[80vh] bg-[#4e342e] flex flex-col items-center justify-center px-6 py-16 text-[#ffcc80]">
+    <section className="min-h-[80vh] bg-[#391811] flex flex-col items-center justify-center px-6 py-16 text-[#ffcc80]">
       <h2 className="text-4xl md:text-5xl font-bold mb-12">📩 Contact Us</h2>
 
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md bg-[#3e2723] p-8 rounded-2xl shadow-2xl flex flex-col gap-4"
+        className="w-full max-w-md bg-[#7b524b] p-8 rounded-2xl shadow-2xl flex flex-col gap-4"
       >
         <input
           type="text"
@@ -35,7 +35,7 @@ export default function Contact() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="p-3 rounded-lg bg-[#5d3e36] placeholder-[#ffcc80] text-[#ffcc80] border-none outline-none"
+          className="p-3 rounded-lg bg-[#391810] placeholder-[#ffcc80] text-[#ffcc80] border-none outline-none"
         />
         <input
           type="email"
@@ -44,7 +44,7 @@ export default function Contact() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="p-3 rounded-lg bg-[#5d3e36] placeholder-[#ffcc80] text-[#ffcc80] border-none outline-none"
+          className="p-3 rounded-lg bg-[#391810] placeholder-[#ffcc80] text-[#ffcc80] border-none outline-none"
         />
         <textarea
           name="message"
@@ -52,7 +52,7 @@ export default function Contact() {
           value={formData.message}
           onChange={handleChange}
           required
-          className="p-3 rounded-lg bg-[#5d3e36] placeholder-[#ffcc80] text-[#ffcc80] border-none outline-none resize-none h-32"
+          className="p-3 rounded-lg bg-[#391810] placeholder-[#ffcc80] text-[#ffcc80] border-none outline-none resize-none h-32"
         ></textarea>
 
         <button

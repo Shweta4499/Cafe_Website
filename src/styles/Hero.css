@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+.banner {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner .content .title {
+  font-family: 'Playfair Display', serif; /* or your custom font */
+  font-size: 9em;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/bg.jpg');   /* background image */
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+
+  /* Ink GIF mask */
+  -webkit-mask-image: url('/ink.apng');
+  -webkit-mask-size: cover;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/ink.apng');
+  mask-size: cover;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
